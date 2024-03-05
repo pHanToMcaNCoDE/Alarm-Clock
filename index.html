@@ -25,64 +25,37 @@
                 
                 
                 <!-- The timer -->
-                <h1 class="font-pixelify fot-5xl text-blue-300 font-extrabold text-3xl lg:text-5xl tracking-widest text-center">04:20:30 PM</h1>
+                <h1 id="time" class="font-pixelify fot-5xl text-blue-300 font-extrabold text-3xl lg:text-5xl tracking-widest text-center"></h1>
             </div>
 
             <!-- Settings for the alarm -->
             <div class="flex flex-col md:flex-row lg:flex-row justify-between items-center gap-x-10 my-4 w-[50%]">
 
                 <!-- Hours Selection -->
-                <select name="" id="" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
+                <select name="Hours" id="hr" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
                     <option value="Hours" selected hidden>Hours</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
                 </select>
 
                 <!-- Minutes Selection -->
-                <select name="" id="" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
+                <select name="Minutes" id="min" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
                     <option value="Minutes" selected hidden>Minutes</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
                 </select>
 
                 <!-- Seconds Selection -->
-                <select name="" id="" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
-                    <option value="Seconds" selected hidden>Seconds</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
-                    <option value="">01</option>
+                <select name="Seconds" id="sec" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
+                    <option value="AM/PM" selected hidden>AM/PM</option>
                 </select>
             </div>
 
             <!-- Button to trigger alarm event -->
 
-            <button class="my-3 bg-blue-400 text-white text-[1rem] font-mono tracking-widest px-2 py-3 rounded-lg w-[50%] outline-0">Set Alarm</button>
+            <button class="button my-3 bg-blue-400 text-white text-[1rem] font-mono tracking-widest px-2 py-3 rounded-lg w-[50%] outline-0">Set Alarm</button>
         </section>
     </main>
     
     
     <!-- This serves as the navbar for the webpage -->
-    
+
     <nav
         class="w-full mx-auto p-2 lg:absolute lg:bottom-0"
     >
@@ -97,12 +70,13 @@
                 <i class="fa-solid fa-list"></i>
                 <p class="font-mono tracking-wide">List</p>
             </div>
-
         </div>
     </nav>
 
 
 
     <script src="https://kit.fontawesome.com/032421aa45.js" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
