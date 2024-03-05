@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./dist/output.css" rel="stylesheet">
+    <title>Digital Clock - Alarm Features</title>
+</head>
+
+<body class="">
+    <!-- <h1 class="text-3xl font-bold underline text-orange-50">
+        Hello world!
+    </h1> -->
+
+    <!-- Tailwindcss was used for styling  -->
+
+    <!-- Body of the webpage -->
+    <main class="max-w-[1100px] mx-auto my-[5%] p-2"><h1 class="text-4xl text-gray-700 font-mono font-bold tracking-widest">Wake Up!</h1>
+        <section class="flex rounded-lg bg-gray-100 flex-col justify-center items-center border border-gray-100 my-[5%] w-[80%] mx-auto lg:h-[60vh]">
+
+            <div class="my-4 flex flex-col justify-center items-center">
+                <!-- Clock Icon8 image -->
+                <i class="text-[10rem] my-2 fa-solid fa-clock"></i>
+                
+                
+                <!-- The timer -->
+                <h1 class="font-pixelify fot-5xl text-blue-300 font-extrabold text-3xl lg:text-5xl tracking-widest text-center">04:20:30 PM</h1>
+            </div>
+
+            <!-- Settings for the alarm -->
+            <div class="flex flex-col md:flex-row lg:flex-row justify-between items-center gap-x-10 my-4 w-[50%]">
+
+                <!-- Hours Selection -->
+                <select name="" id="" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
+                    <option value="Hours" selected hidden>Hours</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                </select>
+
+                <!-- Minutes Selection -->
+                <select name="" id="" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
+                    <option value="Minutes" selected hidden>Minutes</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                </select>
+
+                <!-- Seconds Selection -->
+                <select name="" id="" class="border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0">
+                    <option value="Seconds" selected hidden>Seconds</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                    <option value="">01</option>
+                </select>
+            </div>
+
+            <!-- Button to trigger alarm event -->
+
+            <button class="my-3 bg-blue-400 text-white text-[1rem] font-mono tracking-widest px-2 py-3 rounded-lg w-[50%] outline-0">Set Alarm</button>
+        </section>
+    </main>
+    
+    
+    <!-- This serves as the navbar for the webpage -->
+    
+    <nav
+        class="w-full mx-auto p-2 lg:absolute lg:bottom-0"
+    >
+        <div class="border border-black rounded-full w-[80%] lg:w-[40%] p-1 mx-auto flex justify-between items-center gap-x-[6em]">
+
+            <div class="text-black flex items-center gap-x-3 duration-300 hover:bg-blue-200 hover:text-slate-700 cursor-pointer rounded-full p-2">
+                <i class="fa-solid fa-clock"></i>
+                <p class="font-mono tracking-wide">Alarm</p>
+            </div>
+
+            <div class="text-black flex items-center gap-x-3 duration-300 hover:bg-blue-200 hover:text-slate-700 cursor-pointer rounded-full p-2">
+                <i class="fa-solid fa-list"></i>
+                <p class="font-mono tracking-wide">List</p>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+    <script src="https://kit.fontawesome.com/032421aa45.js" crossorigin="anonymous"></script>
+</body>
+</html>
