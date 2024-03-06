@@ -17,6 +17,8 @@ const alarmList = document.getElementById('alarmList');
 let alarms = [];
 
 
+
+
 let alarmTime;
 
 // For hour select field. For loop to increment 
@@ -150,6 +152,10 @@ function setTheAlarm() {
 
         alarmTime = setTime;
 
+        /***********************************************************************************
+        Pushing the list to the array based on the time selected by users
+        ***********************************************************************************/
+
         alarms.push(alarmTime);
         alarmList.innerHTML = '';
 
@@ -166,6 +172,8 @@ function setTheAlarm() {
                     </li>`;
             alarmList.insertAdjacentHTML('beforeend', list)
         });
+
+        // Disable the Set alarm button when the user clicks on it
 
         setAlarm.classList.add('disable');
         setAlarm.innerText = 'Alarm Set'
