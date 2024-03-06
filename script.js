@@ -6,8 +6,6 @@ const setAlarm = document.querySelector('button');
 const options = document.querySelector('.options');
 const body = document.querySelector('body');
 const title = document.getElementById('main-title');
-const section = document.querySelector('.section');
-const icon = document.querySelector('i');
 const alarmList = document.getElementById('alarmList');
 
 /*************************************************************************** 
@@ -55,7 +53,9 @@ for (let i = 2; i > 0; i--) {
 
 setInterval(() => {
 
-    // Using the in-built Data Class 
+    
+
+    // Using the in-built Data Class. Stack-overflow: https://stackoverflow.com/questions/37751328/date-specific-time-each-day-specific-timezone
 
     let date = new Date();
 
@@ -114,20 +114,21 @@ setInterval(() => {
      Background Color Change
     *********************************************************************/
 
+
+    // TO add or remove a class Stack-overflow: https://stackoverflow.com/questions/61596463/how-do-i-change-one-of-the-classes-in-an-element-with-javascript
+
+    // To change background color Stack-overflow: https://stackoverflow.com/questions/30247634/changing-background-color-when-a-countdown-timer-is-activated
+
     if (h >= 6 && h < 12) {
         title.classList.add('text-black');
-        body.classList.add('bg-orange-300');
+        body.style.backgroundColor = 'orange';
     } else if (h >= 12 && h < 18) {
-        title.classList.add('text-black');
-        body.classList.add('bg-blue-500');
+        title.classList.remove('text-black', 'text-white');
+        body.style.backgroundColor = 'cyan';
     } else {
-
-        title.classList.add('text-white');
-        body.classList.add('bg-neutral-800');
-        icon.classList.add('text-white');
+        title.classList.remove('text-white');
+        body.style.backgroundColor = 'black';
     }
-
-
 
 
 }, 1000);
@@ -161,15 +162,16 @@ function setTheAlarm() {
 
         alarms.forEach(alarm => {
 
-            let list = `<li 
-                    class='list-none border mx-1 my-1 border-black p-1 font-mono tracking-widest text-[1rem] flex justify-between w-full items-center bg-white'>
+            let list = `
+                <li 
+                    class='list-none border py-2 border-black p-1 font-mono tracking-widest text-[1rem] flex justify-between w-full items-center bg-white'>
                         <p>${alarm}</p>
                         <button id="setAlarm"
                                 class="my-3 bg-blue-400 text-white text-[1rem] font-mono tracking-widest px-2 py-3 rounded-lg w-[40%] outline-0"
                         >
                             Set Alarm
                         </button>
-                    </li>`;
+                </li>`;
             alarmList.insertAdjacentHTML('beforeend', list)
         });
 
