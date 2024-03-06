@@ -7,6 +7,7 @@
     <link href="./dist/output.css" rel="stylesheet">
     <title>Digital Clock - Alarm Features</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/assets/alarm.gif" type="image/x-icon">
     <style>
         button.disable {
             opacity: .6;
@@ -19,48 +20,64 @@
 
     <!-- Body of the webpage -->
     <main class="max-w-[1100px] mx-auto my-[5%] p-2">
-        
+
         <h1 id="main-title" class="text-2xl lg:text-4xl text-gray-700 font-mono font-bold tracking-widest">Wake Up!</h1>
 
-        <section class="section flex rounded-lg bg-gray-100 flex-col justify-center items-center border border-gray-100 my-[5%] w-[80%] mx-auto lg:h-[60vh]">
+        <section
+            class="flex rounded-lg bg-white flex-col justify-center items-center border border-white my-[5%] w-[80%] mx-auto lg:h-[60vh]">
 
             <div class="my-4 flex flex-col justify-center items-center">
                 <!-- Clock Icon -->
-                <i class="text-[10rem] my-2 fa-solid fa-clock"></i>
-                
+                <img width="200" height="200" src="/assets/alarm.gif" alt="Clock Icon">
+
                 <!-- The timer -->
-                <h1 id="time" class="font-pixelify font-5xl text-blue-300 font-extrabold text-3xl lg:text-5xl tracking-widest text-center"></h1>
+                <h1 id="time"
+                    class="font-pixelify font-5xl text-black font-extrabold text-3xl lg:text-5xl tracking-widest text-center">
+                </h1>
             </div>
 
             <!-- Settings for the alarm -->
-            <div class="options flex flex-col md:flex-row lg:flex-row justify-between items-center gap-x-10 my-4 w-[50%]">
+            <div
+                class="options flex flex-col md:flex-row lg:flex-row justify-between items-center gap-x-10 my-4 w-[80%]">
                 <!-- Hours Selection -->
-                <select name="Hours" class="select border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0 bg-white">
-                    <option value="Hours" selected hidden>Hours</option>
+                <select name="Hours"
+                    class="select border border-[#000] rounded-lg px-2 py-3 w-[90%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0 bg-white">
+                    <option value="Hours" selected>Hours</option>
                 </select>
 
                 <!-- Minutes Selection -->
-                <select name="Minutes" class="select border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0 bg-white">
-                    <option value="Minutes" selected hidden>Minutes</option>
+                <select name="Minutes"
+                    class="select border border-[#000] rounded-lg px-2 py-3 w-[90%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0 bg-white">
+                    <option value="Minutes" selected>Minutes</option>
                 </select>
 
                 <!-- AM/PM Selection -->
-                <select name="AMPM" class="select border border-[#000] rounded-lg px-2 py-3 w-[90%] md:w-[70%] lg:w-[40%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0 bg-white">
-                    <option value="AM/PM" selected hidden>AM/PM</option>
+                <select name="AMPM"
+                    class="select border border-[#000] rounded-lg px-2 py-3 w-[90%] font-mono text-[1rem] tracking-wider outline-0 my-2 lg:my-0 bg-white">
+                    <option value="AM/PM" selected>AM/PM</option>
                 </select>
             </div>
 
             <!-- Button to trigger alarm event -->
-            <button id="setAlarm" class="my-3 bg-blue-400 text-white text-[1rem] font-mono tracking-widest px-2 py-3 rounded-lg w-[50%] outline-0 disable">Set Alarm</button>
+
+            <button id="setAlarm"
+                class="my-3 bg-blue-400 text-white text-[1rem] font-mono tracking-widest px-2 py-3 rounded-lg w-[80%] md:w-[70%] outline-0">Set
+                Alarm</button>
         </section>
 
-        <!-- List of alarms -->
-        <ul id="alarmList" class="list-disc pl-4">
-            <!-- Alarms will be dynamically added here -->
-        </ul>
+        <!-------------------------------------------------------------------------------------
+            List of alarms 
+        -------------------------------------------------------------------------------------->
+        <section id="alarmList"
+            class="border border-black rounded-lg flex-col justify-center items-center my-[5%] w-[80%] mx-auto max-h-[300px] scroll-smooth overflow-y-scroll whitespace-nowrap p-1">
+            <ul id="alarmList" class="p-1 bg-white">
+                <p class="font-mono tracking-widest text-center text-2xl text-blue-300 font-bold">Your Alarm List goes here</p>
+            </ul>
+        </section>
     </main>
 
     <script src="https://kit.fontawesome.com/032421aa45.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

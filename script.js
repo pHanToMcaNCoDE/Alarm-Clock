@@ -1,11 +1,20 @@
+/************* Variables ******************/
+
 const select = document.querySelectorAll('select');
 let currentTime = document.getElementById('time');
 const setAlarm = document.querySelector('button');
 const options = document.querySelector('.options');
 const body = document.querySelector('body');
-const title = document.getElementById('main-title')
-const section = document.querySelector('.section')
-const icon = document.querySelector('i')
+const title = document.getElementById('main-title');
+const section = document.querySelector('.section');
+const icon = document.querySelector('i');
+const alarmList = document.getElementById('alarmList');
+
+/*************************************************************************** 
+ Alarm Array For Alarm List
+***************************************************************************/
+
+let alarms = [];
 
 
 let alarmTime;
@@ -46,28 +55,28 @@ setInterval(() => {
 
     // Using the in-built Data Class 
 
-    let date = new Date(),
+    let date = new Date();
 
-        // gethour function for hours
-        h = date.getHours(),
+    // gethour function for hours
 
-        // getMinutes function for minutes
-        m = date.getMinutes(),
+    let h = date.getHours();
+    
+    // getMinutes function for minutes
+    
+    let m = date.getMinutes();
 
-        // getSeconds function for seconds
-        s = date.getSeconds(),
+    
+    // getSeconds function for seconds
+    
+    let s = date.getSeconds();
 
-        // setting ampm variable to pm based on the current time (15:35 PM)
-        ampm = 'PM';
+    
+    // If the hour, h is 12, then ampm will be pm (meaning it's noon)
+    
+    let ampm = h >= 12  ? 'PM' : 'AM';
 
-    // If it is midnight, that is 24, then change ampm variable to AM
 
-    if (h >= 24) {
-        h = h - 24
-        ampm = 'AM';
-    }
-
-    // if hour value is 24, then set value to 0
+    // if hour value is 24, then set value to 0 (then, it is midnight)
 
     h = h == 24 ? h = 0 : h;
 
@@ -84,40 +93,39 @@ setInterval(() => {
     currentTime.innerText = `${h}:${m}:${s} ${ampm}`;
 
 
-    /********************************************************************
-     Background Color Change
-    *********************************************************************/
+    /******************************************************************* 
+    Trigger the alert when the alarm time has reached
+    *******************************************************************/
 
-    if (h >= 6 && h < 12) {
-        // body.classList.remove('bg-blue-500', 'bg-yellow-500', 'bg-gray-500');
-        title.classList.add('text-black');
-        section.classList.add('bg-gray-100');
-        select.classList.add('bg-white');
-        body.classList.add('bg-orange-300');
-    } else if (h >= 12 && h < 18) {
-        // body.classList.remove('bg-blue-500', 'bg-yellow-500', 'bg-gray-500');
-
-        body.classList.add('bg-blue-500');
-    } else {
-
-        title.classList.add('text-white');
-        body.classList.add('bg-neutral-800');
-        section.classList.add('bg-gray-500');
-        icon.classList.add('text-white');
-    }
-
-    // Trigger the alert when the alarm time has reached
-
-    if (alarmTime == `${h}:${m} ${ampm}`) {
-
+    if (alarmTime && alarmTime == `${h}:${m} ${ampm}`) {
+        console.log('Alert!')
         alert('Wake Up! Wake Up! Wake Up!');
 
 
         // This will allow the user to remove the alert window
         alarmTime = null;
-        setAlarm.removeAttribute('disabled'); // Remove the disabled attribute
+        setAlarm.classList.remove('disable');
         setAlarm.innerText = 'Set Alarm';
     }
+
+    /********************************************************************
+     Background Color Change
+    *********************************************************************/
+
+    if (h >= 6 && h < 12) {
+        title.classList.add('text-black');
+        body.classList.add('bg-orange-300');
+    } else if (h >= 12 && h < 18) {
+        title.classList.add('text-black');
+        body.classList.add('bg-blue-500');
+    } else {
+
+        title.classList.add('text-white');
+        body.classList.add('bg-neutral-800');
+        icon.classList.add('text-white');
+    }
+
+
 
 
 }, 1000);
@@ -138,12 +146,29 @@ function setTheAlarm() {
     if (setTime.includes('Hours') || setTime.includes('Minutes') || setTime.includes('AM/PM')) {
         return alert('Please, set up your alarm');
     }
+        // Setting the alarm time variable to the time selected by the users
 
-    // Setting the alarm time variable to the time selected by the users
+        alarmTime = setTime;
 
-    alarmTime = setTime;
-    setAlarm.setAttribute('disabled', true); // Add the disabled attribute
-    setAlarm.innerText = 'Alarm Set'
+        alarms.push(alarmTime);
+        alarmList.innerHTML = '';
+
+        alarms.forEach(alarm => {
+
+            let list = `<li 
+                    class='list-none border mx-1 my-1 border-black p-1 font-mono tracking-widest text-[1rem] flex justify-between w-full items-center bg-white'>
+                        <p>${alarm}</p>
+                        <button id="setAlarm"
+                                class="my-3 bg-blue-400 text-white text-[1rem] font-mono tracking-widest px-2 py-3 rounded-lg w-[40%] outline-0"
+                        >
+                            Set Alarm
+                        </button>
+                    </li>`;
+            alarmList.insertAdjacentHTML('beforeend', list)
+        });
+
+        setAlarm.classList.add('disable');
+        setAlarm.innerText = 'Alarm Set'
 }
 
 setAlarm.addEventListener('click', setTheAlarm);
